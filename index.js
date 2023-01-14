@@ -17,15 +17,18 @@ let search = document.getElementById('search')
 search.addEventListener('click', async function getData() {
     let formInput = document.querySelector('#city')
     if(formInput.value){
-
         await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${formInput.value}&appid=e57ec90800abb1dc9f861f269422bd76
         `).then(res => res.json()).then(res => {
-        let data = "";
-        res.weather.forEach(function (el) {
+            if(res.cod==="404"){
+             alert(res.message)
+            }
+            else{
+                let data = "";
+                res.weather.forEach(function (el) {
             data += `
             <div class="prescription">
                     <i class="fa-duotone fa-clouds"></i>
-                    <h4>${el.main}</h4>
+                    <h1>${el.main}</h1>
                     </div>
                     `
                 })
@@ -42,9 +45,12 @@ search.addEventListener('click', async function getData() {
             </div>`
             let  highlights="";
             
+            const meter_per_sec = res.wind.speed /1000
+            const one_sec = 1/3600
+            let answer = meter_per_sec/one_sec
             highlights +=` <div class="card-body">
             <p>Wind-status</p>
-            <h3>${res.wind.speed} <span>km/h</span></h3>
+            <h3>${answer.toString().slice(0,5)} <span>km/h</span></h3>
             <h3>${res.wind.deg}<span>deg</span></h3>
         </div>
         <div class="card-body">
@@ -65,7 +71,7 @@ search.addEventListener('click', async function getData() {
         <div class="card-body">
             <p>Visibility</p>
             <h3>${res.visibility/1000}<span> km</span></h3>
-            <h3>${res.visibility/1000<=3?"Low":"Average"?res.visibility/1000<=6?"Average":"Good":"Low"}</h3>
+            <h3>${res.visibility/1000<=3?"Visibility poor":"Visibility moderate"?res.visibility/1000<=6?"Visibility moderate":"Visibility good":"Visibility poor"}</h3>
         </div>
         <div class="card-body">
             <p>Low/High</p>
@@ -81,9 +87,12 @@ search.addEventListener('click', async function getData() {
         card.innerHTML = highlights
         let country_img = document.querySelector('.country_img')
         country_img.innerHTML = `<h3>${res.name}</h3>`
+       
+    }
     })
 }
 })
+
 
 
 
