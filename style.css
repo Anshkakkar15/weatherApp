@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container_wrapper{
+    background-color:red;
+    width: 100%;
+    min-height: 100vh;
+}
+.container{
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 2.5rem 0;
+}
+.row{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.left_bar{
+    background-color: white;
+    padding: 2.5rem 0;
+}
+.left_body{
+    width: 85%;
+    display: block;
+    margin: auto;
+}
+.searchBox{
+    line-height: 5em;
+}
+
+input[type=text]{
+    border: none;
+    outline: none;
+    border: 3px solid rgb(241 243 244);
+    width: 70%;
+    padding: 10px 15px;
+    font-size: 15px;
+}
+input[type=submit]{
+    border: none;
+    outline: none;
+    border: 3px solid rgb(241 243 244);
+    width: 30%;
+    padding: 10px 15px;
+    font-size: 15px;
+    margin-left: -5px;
+    text-align: center;
+}
+input[type=text]::placeholder{
+    color: #000;
+}
+.weatherCondition{
+    padding: 25px 0;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weatherCondition img{
+    height: 160px;
+    width: 160px;
+}
+.temperature{
+    position: relative;
+}
+.temp_head{
+    font-size: 80px;
+    color: #444444;
+    line-height: 1.5em;
+}
+.dayTime{
+    font-size: 25px;
+    color: #444444;
+    padding: 0 0 35px 0;
+}
+.dayTime span{
+    color: rgb(174, 174, 174);
+}
+.dayTime::after{
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid rgb(241 243 244);
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+}
+.prescription{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.prescription h4{
+    font-size: 23px;
+    line-height: 3.2em;
+}
+.country_img{
+    background-image:
+            linear-gradient(45deg,
+              rgba(203, 109, 107, 0.293),
+              rgba(8, 82, 156, 0.259)), url('assets/city.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    margin: 12px 0;
+    overflow: initial;
+    width: 100%;
+    transition: .5s ease-in-out;
+}
+.country_img:hover{
+    transform: scale(1.1);
+    width: auto;
+    height: auto;
+}
+.country_img h3{
+    padding: 30px 0;   
+    color: #f8f9fa;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.385), 0 0 10px rgba(0, 0, 0, 0.385), 0 0 10px rgba(0, 0, 0, 0.385), 0 0 10px rgba(0, 0, 0, 0.385), 0 0 10px rgba(0, 0, 0, 0.385), 0 0 10px rgba(0, 0, 0, 0.385), 0 0 10px rgba(0, 0, 0, 0.385);
+    font-size: 25px;
+    line-height: 2em;
+    z-index: 1;
+}
+.right_bar{
+    background-color:#f8f9fa;
+    overflow: hidden;
+}
+.heading{
+    font-size: 18px;
+    line-height: 5em;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 2rem;
+}
+.card-body{
+    background-color: white;
+    padding: 25px 20px;
+    box-shadow: 0px 2px 15px rgba(85, 98, 112, 0.468);
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.card-body p{
+    color: gray;
+    font-size: 20px;
+    line-height: 2em;
+}
+.card-body h3{
+    font-size: 30px;
+    font-weight: 400;
+    position: relative;
+    line-height: 2em;
+}
+
+.card-body h3 span{
+    color: black;
+    font-size: 15px;
+}
+
+@media (max-width:1200px){
+    .row{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+@media (max-width:984px) {
+    .card{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+        grid-gap: 2rem;
+        height: 36rem;
+        padding: 25px ;
+        overflow: scroll;
+    }
+}
+@media (max-width:850px){
+    .row{
+        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+    .weatherCondition{
+        justify-content: flex-start;
+    }
+    .weather-section{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        place-items: center;
+    }
+    .dayTime::after{
+        display: none;
+    }
+}
