@@ -26,6 +26,10 @@
 .left_bar{
     background-color: white;
     padding: 2.5rem 0;
+   /* background-image: url("https://source.unsplash.com/collection/190727/300x300");
+     background-repeat: no-repeat;
+    background-position: center;    
+    background-size: cover; */
 }
 .left_body{
     width: 85%;
@@ -71,7 +75,7 @@ input[type=text]::placeholder{
     position: relative;
 }
 .temp_head{
-    font-size: 80px;
+    font-size: 50px;
     color: #444444;
     line-height: 1.5em;
 }
@@ -114,6 +118,7 @@ input[type=text]::placeholder{
     margin: 12px 0;
     overflow: initial;
     width: 100%;
+    text-transform: capitalize;
     transition: .5s ease-in-out;
 }
 .country_img:hover{
@@ -164,7 +169,7 @@ input[type=text]::placeholder{
 
 .card-body h3 span{
     color: black;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 @media (max-width:1200px){
